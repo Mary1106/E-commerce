@@ -34,3 +34,11 @@ def test_new_product():
     assert new_product.description == "256GB, Серый цвет, 200MP камера"
     assert new_product.price == 180000.0
     assert new_product.quantity == 5
+
+
+def test_magic_str(product):
+    assert str(product) == "'55' QLED 4K, 123000.0 руб. Остаток: 7 шт."
+
+
+def test_magic_add(product, second_product):
+    assert product + second_product == 1761000.0
