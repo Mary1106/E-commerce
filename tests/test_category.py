@@ -1,3 +1,5 @@
+import pytest
+
 
 def test_category_init(first_category, second_category):
     assert first_category.name == "Смартфоны"
@@ -23,3 +25,10 @@ def test_add_product(first_category, product):
 
 def test_magic_str(second_category):
     assert str(second_category) == 'Телевизоры, количество продуктов: 7 шт.'
+
+
+def test_add_no_product(first_category, product):
+    count_before_add = first_category.product_count
+    with pytest.raises(TypeError):
+        first_category.add_product("product")
+    assert first_category.product_count == count_before_add

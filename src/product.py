@@ -36,5 +36,9 @@ class Product:
         return f'{self.name}, {self.price} руб. Остаток: {self.quantity} шт.'
 
     def __add__(self, other):
-        """Возвращает сумму произведений цены на количество двух продуктов"""
-        return self.__price * self.quantity + other.__price * other.quantity
+        """Возвращает сумму произведений цены на количество двух продуктов одной категории, при этом не дает складывать
+        два продукта из разных категорий"""
+        if type(other) is type(self):
+            return self.__price * self.quantity + other.__price * other.quantity
+        else:
+            raise TypeError
