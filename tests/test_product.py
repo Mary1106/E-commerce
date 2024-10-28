@@ -10,6 +10,11 @@ def test_product_init(product):
     assert product.quantity == 7
 
 
+def test_product_invalid_init():
+    with pytest.raises(ValueError, match='Товар с нулевым количеством не может быть добавлен'):
+        return Product("Бракованный товар", "Неверное количество", 1000.0, 0)
+
+
 def test_price_setter(product):
     product.price = -100
     assert product.price == 123000.0

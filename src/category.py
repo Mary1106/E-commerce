@@ -39,3 +39,9 @@ class Category:
         for product in self.__products:
             product_in_category_quantity += product.quantity
         return f'{self.name}, количество продуктов: {product_in_category_quantity} шт.'
+
+    def middle_price(self):
+        try:
+            return sum([product.price for product in self.__products]) / len(self.__products)
+        except ZeroDivisionError:
+            return 0
