@@ -1,5 +1,4 @@
 import pytest
-from src.category import Category
 
 
 def test_category_init(first_category, second_category):
@@ -35,8 +34,6 @@ def test_add_no_product(first_category, product):
     assert first_category.product_count == count_before_add
 
 
-def test_middle_price(first_category):
+def test_middle_price(first_category, empty_category):
     assert first_category.middle_price() == 195000.0
-
-
-
+    assert empty_category.middle_price() == 0

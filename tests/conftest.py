@@ -75,3 +75,8 @@ def first_lawn_grass():
 @pytest.fixture
 def second_lawn_grass():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+
+@pytest.fixture
+def empty_category():
+    return Category(name="Смартфоны", description="Смартфоны, как средство...", products=[])
