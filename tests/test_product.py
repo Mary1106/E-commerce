@@ -1,3 +1,5 @@
+import pytest
+
 from src.product import Product
 
 
@@ -42,3 +44,12 @@ def test_magic_str(product):
 
 def test_magic_add(product, second_product):
     assert product + second_product == 1761000.0
+
+
+def test_magic_add_different_categories(first_smartphone, first_lawn_grass):
+    with pytest.raises(TypeError):
+        first_smartphone + first_lawn_grass
+
+
+def test_magic_add_same_categories(first_lawn_grass, second_lawn_grass):
+    assert first_lawn_grass + second_lawn_grass == 16750
