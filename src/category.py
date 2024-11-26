@@ -27,3 +27,10 @@ class Category:
         for product in self.__products:
             product_str += f'{product.name}, {product.price} руб. Остаток: {product.quantity} шт.\n'
         return product_str
+
+    def __str__(self):
+        """Магический метод; возвращает строку с информацией о количестве продуктов категории"""
+        product_in_category_quantity = 0
+        for product in self.__products:
+            product_in_category_quantity += product.quantity
+        return f'{self.name}, количество продуктов: {product_in_category_quantity} шт.'
